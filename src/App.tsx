@@ -1,9 +1,12 @@
 import Background from "./Background";
-
+import Content from "./Content";
 export default function App() {
   return (
-    <div className="w-full h-screen">
-      <Background />
+    <div className="relative">
+      <Content />
+      <div className="fixed inset-0">
+        <Background />
+      </div>
     </div>
   );
 }

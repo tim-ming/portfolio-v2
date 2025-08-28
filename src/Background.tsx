@@ -366,8 +366,9 @@ function ReflectiveFloor({ impactTime }: { impactTime: number | null }) {
     <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -1, 0]}>
       <planeGeometry args={[40, 40]} />
       <MeshReflectorMaterial
-        resolution={2048}
-        blur={[800, 100]}
+        resolution={1024}
+        // blur={[800, 100]}
+        blur={[400, 50]}
         mixBlur={1}
         mixStrength={500}
         depthScale={1}
@@ -403,7 +404,7 @@ const Effects = () => {
     bloomSmoothing: { value: 0.9, min: 0, max: 1, step: 0.01 },
     vignetteOffset: { value: 0.1, min: 0, max: 1, step: 0.01 },
     vignetteDarkness: { value: 0.8, min: 0, max: 3, step: 0.05 },
-    noiseOpacity: { value: 0.03, min: 0, max: 1, step: 0.01 },
+    noiseOpacity: { value: 0.1, min: 0, max: 1, step: 0.01 },
     dofFocalDistance: { value: 0.01, min: 0.001, max: 1, step: 0.001 },
     dofFocalLength: { value: 0.01, min: 0.001, max: 1, step: 0.001 },
     dofFocusRange: { value: 0.01, min: 0.001, max: 1, step: 0.001 },
@@ -412,12 +413,14 @@ const Effects = () => {
 
   return (
     <EffectComposer>
-      <Bloom
+      {/* <Bloom
         luminanceThreshold={bloomThreshold}
         luminanceSmoothing={bloomSmoothing}
         intensity={bloomIntensity}
-      />
-      <DepthOfField
+      /> */}
+
+      <Bloom luminanceThreshold={0} luminanceSmoothing={0.8} intensity={5} />
+      {/* <DepthOfField
         // focusDistance={dofFocalDistance}
         // focalLength={dofFocalLength}
         // focusRange={dofFocusRange}
@@ -426,8 +429,9 @@ const Effects = () => {
         focalLength={0}
         focusRange={0.12}
         bokehScale={dofBokehScale}
-      />
-      <Noise opacity={noiseOpacity} />
+      /> */}
+      {/* <Noise opacity={noiseOpacity} /> */}
+      <Noise opacity={0.15} />
       <Vignette
         eskil={false}
         offset={vignetteOffset}
@@ -437,6 +441,26 @@ const Effects = () => {
   );
 };
 
+function Rig({ initialPosition }: { initialPosition: THREE.Vector3Tuple }) {
+  const { camera, pointer } = useThree();
+  const vec = new THREE.Vector3();
+
+  useFrame((_, delta) => {
+    const lerpSpeed = 5 * delta;
+    camera.position.lerp(
+      vec.set(
+        initialPosition[0] + pointer.x * 2,
+        initialPosition[1] + pointer.y * 1 + 1,
+        initialPosition[2]
+      ),
+      lerpSpeed
+    );
+    camera.lookAt(0, 0, 0);
+  }, -1); // priority -1 runs before other frames like reflector
+
+  return null;
+}
+
 export default function Background() {
   const [impactTime, setImpactTime] = useState<number | null>(null);
 
@@ -445,11 +469,8 @@ export default function Background() {
   }, []);
 
   return (
-    <Canvas
-      dpr={[1, 1.5]}
-      camera={{ position: [0, -0.5, 15], fov: 50, near: 0.1, far: 50 }}
-    >
-      <Perf className="left-0 top-0 !right-auto" />
+    <Canvas dpr={[1, 1.5]} camera={{ fov: 50, near: 0.1, far: 50 }}>
+      {/* <Perf className="left-0 top-0 !right-auto" /> */}
       <color attach="background" args={["#0c0c0c"]} />
       <ambientLight intensity={0.55} />
       <directionalLight position={[2, 5, 2]} intensity={1.7} />
@@ -458,9 +479,10 @@ export default function Background() {
         <Particles impactTime={impactTime} />
         <ReflectiveFloor impactTime={impactTime} />
       </Suspense>
-      {/* <fog args={["#000", 10, 20]} /> */}
+      <Rig initialPosition={[0, -0.5, 15]} />
+      <fog attach="fog" args={["#0c0c0c", 15, 25]} />
       <Effects />
-      <OrbitControls enableZoom={false} />
+      {/* <OrbitControls enableZoom={false} /> */}
     </Canvas>
   );
 }
