@@ -15,8 +15,6 @@ export default function Content() {
       <div className="mx-auto flex min-h-screen max-w-3xl flex-col px-4 pt-16 pb-12 sm:px-8">
         <IntroSection />
         <NowSection />
-        {/* <SectionSeparator />
-        <AboutSection /> */}
         <SectionSeparator />
         <ProjectsSection />
         <SectionSeparator />
