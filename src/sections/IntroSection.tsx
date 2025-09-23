@@ -1,6 +1,6 @@
 import { contacts } from '../data/contacts';
 
-const socialContacts = contacts;
+const socialContacts = contacts.filter((contact) => contact.label !== 'Email');
 
 export default function IntroSection() {
   const name = 'Tim Ming';
