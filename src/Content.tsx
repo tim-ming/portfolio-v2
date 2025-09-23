@@ -1,61 +1,85 @@
-export default function PortfolioLayout() {
+import { useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+import NavBar, { type NavItem } from './NavBar';
+import {
+  AboutSection,
+  ConnectSection,
+  EducationSection,
+  ExperienceSection,
+  FooterSection,
+  IntroSection,
+  NowSection,
+  ProjectsSection,
+} from './sections';
+
+const navItems: NavItem[] = [
+  { label: 'About', href: '#about' },
+  { label: 'Projects', href: '#projects' },
+  { label: 'Education', href: '#education' },
+  { label: 'Experience', href: '#experience' },
+  { label: 'Connect', href: '#connect' },
+];
+
+export default function Content() {
+  const containerRef = useRef<HTMLElement | null>(null);
+
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const ctx = gsap.context(() => {
+      gsap.utils.toArray<HTMLElement>('[data-section]').forEach((section) => {
+        gsap.fromTo(
+          section,
+          { autoAlpha: 0, y: 48 },
+          {
+            autoAlpha: 1,
+            y: 0,
+            duration: 0.8,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: section,
+              start: 'top 90%',
+              toggleActions: 'play none none none',
+            },
+          }
+        );
+      });
+    }, containerRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <main className="min-h-screen relative z-10 text-white font-sans">
-      {/* Grid container */}
-      <div className="grid grid-cols-12 gap-4 px-8 py-12 max-w-7xl mx-auto">
-        {/* Sidebar / Nav */}
-        <aside className="col-span-3 flex flex-col justify-between">
-          <div className="flex flex-col">
-            <span className="mb-2">Tim Ming</span>
-            <p>Software Engineer</p>
-            <nav className="mt-8 space-y-2 text-sm font-medium">
-              <a href="#" className="block hover:underline">
-                Work
-              </a>
-              <a href="#" className="block hover:underline">
-                About
-              </a>
-              <a href="#" className="block hover:underline">
-                Contact
-              </a>
-            </nav>
-          </div>
-          <footer className="mt-12 text-xs text-gray-500">
-            © {new Date().getFullYear()}
-          </footer>
-        </aside>
-
-        {/* Main Content */}
-        <section className="col-span-9">
-          {/* Hero */}
-          <header className="mb-24">
-            <h2 className="text-6xl md:text-8xl font-bold uppercase leading-tight">
-              Design. Code. Minimal.
-            </h2>
-            <p className="mt-6 text-lg max-w-prose text-gray-600">
-              I'm a developer/designer focused on clean, functional experiences
-              with a Swiss-inspired approach.
-            </p>
-          </header>
-
-          {/* Project Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div className="border-t pt-4">
-              <h3 className="text-xl font-semibold">Project Title</h3>
-              <p className="text-gray-600 mt-2">
-                Short description of the project.
-              </p>
-            </div>
-            <div className="border-t pt-4">
-              <h3 className="text-xl font-semibold">Another Project</h3>
-              <p className="text-gray-600 mt-2">
-                Short description of the project.
-              </p>
-            </div>
-            {/* Add more project blocks */}
-          </div>
-        </section>
+    <main
+      id="main-content"
+      ref={containerRef}
+      tabIndex={-1}
+      className="pseudo-blur relative z-10 min-h-screen bg-black/80 text-gray-300"
+    >
+      <NavBar items={navItems} />
+      <div className="mx-auto flex min-h-screen max-w-3xl flex-col px-6 pt-16 pb-12 sm:px-8">
+        <IntroSection />
+        <NowSection />
+        {/* <SectionSeparator />
+        <AboutSection /> */}
+        <SectionSeparator />
+        <ProjectsSection />
+        <SectionSeparator />
+        <EducationSection />
+        <SectionSeparator />
+        <ExperienceSection />
+        <SectionSeparator />
+        <ConnectSection />
+        <SectionSeparator />
+        <FooterSection />
       </div>
     </main>
   );
+}
+
+function SectionSeparator() {
+  // return <hr className="my-16 h-px w-full border-0 bg-white/10"></hr>;
+  return <hr className="my-16 h-px w-full border-0"></hr>;
 }
