@@ -1,3 +1,4 @@
+import { useScreenLargerThan } from '@/hooks';
 import SectionHeader from '../components/SectionHeader';
 import { ArrowUpRight } from 'lucide-react';
 
@@ -15,10 +16,13 @@ const currentProject = {
 };
 
 export default function NowSection() {
+  const isSmUp = useScreenLargerThan('sm');
   return (
     <section id="now">
-      <SectionHeader title="Currently Building" content="A full-fledged launchpad for creative front-end work" />
-      <article className="group card relative space-y-3 p-5 text-sm text-gray-300">
+      <SectionHeader title="Currently Building" content="A launchpad for creative front-end work" />
+      <article
+        className={`${isSmUp ? 'group card' : 'rounded-md border border-white/10 bg-black/50'} relative space-y-3 p-5 text-sm text-gray-300`}
+      >
         <header className="flex flex-wrap items-center gap-2">
           <a
             href={currentProject.href}
@@ -27,7 +31,7 @@ export default function NowSection() {
             className="focus-outline group flex items-center gap-2 rounded-sm"
             aria-label={`${currentProject.title} (opens in GitHub in a new tab)`}
           >
-            <span className="absolute inset-0 rounded-sm" aria-hidden="true" />
+            <span className="absolute inset-0 hidden rounded-sm md:block" aria-hidden="true" />
             <h3 className="animated-text text-xl leading-none font-semibold">{currentProject.title}</h3>
             <ArrowUpRight className="animated-arrow h-4 w-4" aria-hidden />
           </a>

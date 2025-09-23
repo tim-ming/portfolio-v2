@@ -16,7 +16,7 @@ export default function App() {
         <Route path="/projects" element={<ProjectsArchivePage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
-      <div className="fade-in-brightness fixed inset-0 bg-black brightness-0">
+      <div className="fade-in-brightness fixed top-0 left-0 h-lvh w-screen bg-black brightness-0">
         <Background />
       </div>
     </div>

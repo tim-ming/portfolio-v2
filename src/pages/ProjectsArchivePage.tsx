@@ -5,7 +5,7 @@ import { projects } from '../data/projects';
 export default function ProjectsArchivePage() {
   return (
     <main className="pseudo-blur relative z-10 min-h-screen bg-black/90 py-24 text-gray-300">
-      <div className="mx-auto flex min-h-screen max-w-7xl flex-col px-6 sm:px-8">
+      <div className="mx-auto flex min-h-screen max-w-7xl flex-col px-4 sm:px-8">
         <header className="mb-12 flex flex-col gap-6">
           <Link
             to="/"
@@ -34,6 +34,7 @@ export default function ProjectsArchivePage() {
             </thead>
             <tbody>
               {projects
+                .slice()
                 .sort((a, b) => a.id.localeCompare(b.id))
                 .sort((a, b) => b.timeline.localeCompare(a.timeline))
                 .sort((a, b) => {

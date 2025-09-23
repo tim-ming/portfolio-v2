@@ -1,15 +1,16 @@
 import { useEffect, useRef } from 'react';
 import { Canvas, useFrame, type RootState } from '@react-three/fiber';
-import * as THREE from 'three';
+
 import { useWindowSize } from 'usehooks-ts';
+import { ShaderMaterial, Vector2 } from 'three';
 function ShaderPlane() {
-  const materialRef = useRef<THREE.ShaderMaterial>(null);
+  const materialRef = useRef<ShaderMaterial>(null);
 
   const { width, height } = useWindowSize();
   // uniforms
   const uniforms = useRef({
     time: { value: 0.0 },
-    resolution: { value: new THREE.Vector2(width, height) },
+    resolution: { value: new Vector2(width, height) },
   });
 
   // update time each frame
@@ -19,10 +20,15 @@ function ShaderPlane() {
     }
   });
 
+  // for safari toolbar resize issue
+  const prev = useRef({ w: 0, h: 0 });
   useEffect(() => {
-    if (materialRef.current) {
+    if (width !== prev.current.w || Math.abs(height - prev.current.h) > 100) {
       uniforms.current.resolution.value.set(width, height);
+      console.log(width, height);
     }
+
+    prev.current = { w: width, h: height };
   }, [width, height]);
 
   const vertexShader = `

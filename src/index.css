@@ -28,6 +28,9 @@
     letter-spacing: -0.02em;
     scroll-behavior: smooth;
   }
+  body {
+    @apply bg-black;
+  }
 }
 
 @layer components {
