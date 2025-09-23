@@ -1,34 +1,34 @@
 import SectionHeader from '../components/SectionHeader';
-
-const contacts = [
-  { label: 'Email', value: 'koktimming@gmail.com', href: 'mailto:koktimming@gmail.com' },
-  { label: 'LinkedIn', value: 'linkedin.com/in/koktimming', href: 'https://linkedin.com/in/koktimming' },
-  { label: 'GitHub', value: 'github.com/tim-ming', href: 'https://github.com/tim-ming' },
-];
+import { ArrowUpRight } from 'lucide-react';
+import { contacts } from '../data/contacts';
 
 export default function ConnectSection() {
   return (
-    <section id="connect" data-section>
+    <section id="connect">
       <SectionHeader
         title="Connect"
         content="Let's connect! Feel free to reach out about opportunities, projects, or collaborations anytime."
       />
       <dl className="space-y-4">
         {contacts.map((contact) => {
-          const isExternal = contact.href.startsWith('http');
+          const isExternal = contact.href.startsWith('http') || contact.href.startsWith('/');
 
           return (
             <div key={contact.label} className="flex flex-col gap-1">
-              <dt className="font-mono text-sm">{contact.label}</dt>
-              <dd>
+              <dt className="flex items-center gap-2 font-mono text-sm text-gray-400">
+                <contact.icon className="h-4 w-4" />
+                {contact.label}
+              </dt>
+              <dd className="flex">
                 <a
                   href={contact.href}
-                  className="focus-outline inline-flex w-fit text-base text-white transition-colors hover:text-gray-200 hover:underline focus-visible:text-gray-200 focus-visible:underline"
+                  className="focus-outline flex items-center gap-1 text-base text-gray-300 transition-colors hover:text-blue-200 hover:underline focus-visible:text-blue-200 focus-visible:underline"
                   target={isExternal ? '_blank' : undefined}
                   rel={isExternal ? 'noopener noreferrer' : undefined}
                 >
                   {contact.value}
                   {isExternal && <span className="sr-only"> (opens in a new tab)</span>}
+                  {contact.label === 'Resume' && <ArrowUpRight className="h-4 w-4" />}
                 </a>
               </dd>
             </div>

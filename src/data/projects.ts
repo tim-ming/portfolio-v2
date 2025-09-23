@@ -17,7 +17,7 @@ export type Project = {
 export const projects: Project[] = [
   {
     id: '01',
-    role: 'Open Source Tooling',
+    role: 'Open-Source CLI Development',
     timeline: 'Present',
     title: 'create-react-creative',
     description:
@@ -35,7 +35,7 @@ export const projects: Project[] = [
     id: '02',
     role: 'Frontend Development',
     timeline: '2025',
-    title: 'Portfolio Website',
+    title: 'Portfolio Website v1',
     description:
       'Interactive portfolio site exploring creative coding techniques with modern tools like GSAP and three.js.',
     descriptionShort: 'Accessible React and Tailwind portfolio site with polished motion.',
@@ -56,7 +56,7 @@ export const projects: Project[] = [
       'GenAI-powered nutrition analysis Android app using Kotlin, MVVM, Room, Retrofit, and Gemini to deliver personalized dietary insights.',
     descriptionShort: 'Android nutrition app with MVVM, Room, Retrofit, and Gemini insights.',
     skills: ['Kotlin', 'MVVM', 'Room', 'Retrofit', 'Gemini API'],
-    tooltip: 'Github',
+    tooltip: 'GitHub',
     href: 'https://github.com/tim-ming/NutriTrack',
     image: {
       default: 'nutritrack.jpg',
@@ -113,7 +113,7 @@ export const projects: Project[] = [
   },
   {
     id: '07',
-    role: 'Web Development',
+    role: 'Frontend Development',
     timeline: '2024',
     title: 'Meaningless',
     description:
@@ -129,7 +129,7 @@ export const projects: Project[] = [
   },
   {
     id: '08',
-    role: 'Creative Coding',
+    role: 'Frontend Development',
     timeline: '2023',
     title: 'Kuroneko',
     description:

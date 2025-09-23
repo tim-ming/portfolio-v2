@@ -5,7 +5,7 @@ const paragraphs = [
 
 export default function AboutSection() {
   return (
-    <section id="about" data-section className="space-y-4">
+    <section id="about" className="space-y-4">
       <h2>About Me</h2>
       {paragraphs.map((text, index) => {
         const tone = index === 0 ? 'text-gray-300' : 'text-gray-400';

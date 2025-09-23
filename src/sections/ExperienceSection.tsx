@@ -1,63 +1,68 @@
+import { ArrowRight, ArrowUpRight } from 'lucide-react';
+import { Link } from 'react-router';
 import SectionHeader from '../components/SectionHeader';
 
 const experience = [
   {
     company: 'Lizard Global',
+    link: 'https://lizard.global',
     role: 'Software Engineer Intern',
     period: 'Nov 2023 — Feb 2024',
     location: 'Kuala Lumpur, MY',
     stack: ['MERN', 'Next.js', 'TypeScript', 'SCSS', 'Zustand', 'GraphQL', 'Apollo Client', 'Ant Design', 'Figma'],
     bullets: [
-      'Built 20+ features for a learning management system in MERN stack across 12-week sprints, working closely with design and backend teams.',
-      'Delivered 30+ Figma screens and components into responsive, production-ready web UI components with WCAG compliance in highly customised AntD components.',
-      'Spearheaded state management migration from Context API to Zustand, eliminating significant overhead in unnecessary re-renders and improving page load times.',
-      'Integrated 30+ type-safe GraphQL APIs with Apollo Client to support queries, mutations and reliable error/loading states for responsive UI updates.',
+      'Built features for a learning management system with MERN stack, collaborating closely with design and backend team members based on stakeholder requirements.',
+      'Delivered Figma screens and components as responsive, production-ready web UI with WCAG-compliant, customized AntD components.',
+      'Led the migration of state management from Context API to Zustand, reducing unnecessary re-renders and improving load times.',
+      'Integrated type-safe GraphQL APIs with Apollo Client to support queries, mutations, and reliable UI updates with proper error and loading states.',
     ],
   },
   {
     company: 'Monash University',
-    role: 'Class Assistant (FIT2102 Programming Paradigms)',
+    link: 'https://monash.edu.my',
+    role: 'Class Mentor',
     period: 'Jul 2024 — Nov 2024',
     location: 'Subang Jaya, MY',
     stack: ['TypeScript', 'Haskell', 'Functional Programming'],
     bullets: [
       'Served as dedicated teaching assistant for FIT2102 Programming Paradigms course, mentoring 150+ undergraduate CS students on functional programming paradigms in TypeScript and Haskell.',
-      "Delivered 9 contact hours per week, leading online and in-person consultations to clarify advanced concepts and support students' learning on challenging course material.",
+      "Delivered 9 contact hours per week, leading workshops and consultations to clarify advanced concepts and support students' learning on challenging course material.",
     ],
   },
 ];
 
 export default function ExperienceSection() {
   return (
-    <section id="experience" data-section>
+    <section id="experience">
       <SectionHeader title="Work Experience" />
-      <ul className="flex flex-col gap-20">
+      <ul className="flex flex-col gap-16">
         {experience.map((item) => (
-          <li key={`${item.company}-${item.role}`}>
-            <div className="mb-4 flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
-              <div className="flex w-full flex-col leading-tight">
-                {/* Left column */}
-                <div className="flex items-end justify-between">
-                  <span className="font-medium text-white">{item.role}</span>
-                  <span className="text-gray-300">{item.period}</span>
-                </div>
-
-                {/* Right column */}
-                <div className="flex items-start justify-between">
-                  <span className="text-gray-500">{item.company}</span>
-                  <span className="text-gray-500">{item.location}</span>
-                </div>
-              </div>
+          <li key={`${item.company}-${item.role}`} className="flex flex-col">
+            <div className="mb-2 flex flex-col-reverse gap-2 sm:flex-row sm:items-center sm:justify-between sm:text-lg">
+              <span>
+                <a
+                  href={item.link}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="focus-outline group flex items-center gap-1 rounded-md"
+                >
+                  <span className="animated-text font-medium">{`${item.role} · ${item.company}`}</span>
+                  <ArrowUpRight className="animated-arrow h-4 w-4" />
+                </a>
+              </span>
+              <span className="font-mono text-sm text-gray-400">{item.period}</span>
             </div>
-            <ul className="mb-6 list-disc space-y-3 pl-5 text-gray-400">
+            <ul className="mb-6 list-disc space-y-3 pl-4 text-sm text-gray-400 sm:text-base">
               {item.bullets.map((bullet) => (
-                <li key={bullet}>{bullet}</li>
+                <li className="tracking-normal" key={bullet}>
+                  {bullet}
+                </li>
               ))}
             </ul>
             {item.stack && (
-              <ul className="flex list-none flex-wrap gap-1 text-xs text-gray-300">
+              <ul className="flex list-none flex-wrap gap-1">
                 {item.stack.map((tech) => (
-                  <li key={tech} className="badge badge-blue">
+                  <li key={tech} className="badge badge-blue text-xs sm:text-sm">
                     {tech}
                   </li>
                 ))}
@@ -66,6 +71,12 @@ export default function ExperienceSection() {
           </li>
         ))}
       </ul>
+      <div className="mt-12 flex justify-center">
+        <Link to="/resume.pdf" className="focus-outline group cta flex items-center gap-2">
+          <span className="relative font-mono">View Resume</span>
+          <ArrowRight className="h-4 w-4 transition-all duration-200 group-hover:translate-x-1 group-focus-visible:translate-x-1" />
+        </Link>
+      </div>
     </section>
   );
 }

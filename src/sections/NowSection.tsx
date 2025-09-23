@@ -16,7 +16,7 @@ const currentProject = {
 
 export default function NowSection() {
   return (
-    <section id="now" data-section>
+    <section id="now">
       <SectionHeader title="Currently Building" content="A full-fledged launchpad for creative front-end work" />
       <article className="group card relative space-y-3 p-5 text-sm text-gray-300">
         <header className="flex flex-wrap items-center gap-2">
@@ -28,7 +28,7 @@ export default function NowSection() {
             aria-label={`${currentProject.title} (opens in GitHub in a new tab)`}
           >
             <span className="absolute inset-0 rounded-sm" aria-hidden="true" />
-            <h3 className="animated-text text-xl font-semibold">{currentProject.title}</h3>
+            <h3 className="animated-text text-xl leading-none font-semibold">{currentProject.title}</h3>
             <ArrowUpRight className="animated-arrow h-4 w-4" aria-hidden />
           </a>
           {/* <span className="text-xs tracking-[0.3em] text-gray-500 uppercase">{currentProject.status}</span> */}

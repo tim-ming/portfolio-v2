@@ -1,77 +1,105 @@
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, Github, Globe } from 'lucide-react';
 import { Link } from 'react-router';
 import { projects } from '../data/projects';
 
 export default function ProjectsArchivePage() {
   return (
-    <main className="pseudo-blur relative z-10 min-h-screen bg-[#f5f5f0]/95 text-gray-900">
-      <div className="mx-auto flex min-h-screen max-w-5xl flex-col px-6 py-16 sm:px-10">
-        <header className="flex flex-col gap-6 border-b border-black/30 pb-12">
+    <main className="pseudo-blur relative z-10 min-h-screen bg-black/90 py-24 text-gray-300">
+      <div className="mx-auto flex min-h-screen max-w-7xl flex-col px-6 sm:px-8">
+        <header className="mb-12 flex flex-col gap-6">
           <Link
             to="/"
-            className="focus-outline inline-flex w-fit items-center gap-2 text-xs font-semibold uppercase tracking-[0.4em] text-red-500 transition hover:text-red-600"
+            className="focus-outline flex w-fit items-center gap-2 p-1 font-mono text-xs font-semibold text-blue-200/80 transition hover:text-gray-100"
           >
-            ← Back to Studio
+            ← BACK TO HOME
           </Link>
           <div className="space-y-3">
-            <p className="font-mono text-xs uppercase tracking-[0.5em] text-black/60">Project Archive</p>
-            <h1 className="text-4xl font-semibold uppercase tracking-tight sm:text-5xl">Work Index</h1>
-            <p className="max-w-2xl text-sm text-black/70">
-              A chronological record of shipped experiments, client collaborations, and exploratory builds.
-            </p>
+            <h1 className="text-4xl font-semibold tracking-tight text-gray-100 sm:text-5xl">Project Archive</h1>
           </div>
         </header>
 
-        <section className="mt-12 flex-1 overflow-x-auto">
-          <table className="min-w-full border-separate border-spacing-0 text-left">
-            <thead>
-              <tr className="text-xs uppercase tracking-[0.3em] text-black/60">
-                <th className="border-b border-black/40 bg-black/5 px-4 py-3 font-medium">ID</th>
-                <th className="border-b border-black/40 bg-black/5 px-4 py-3 font-medium">Project</th>
-                <th className="border-b border-black/40 bg-black/5 px-4 py-3 font-medium">Discipline</th>
-                <th className="border-b border-black/40 bg-black/5 px-4 py-3 font-medium">Year</th>
-                <th className="border-b border-black/40 bg-black/5 px-4 py-3 font-medium">Summary</th>
-                <th className="border-b border-black/40 bg-black/5 px-4 py-3 font-medium">Link</th>
+        <section className="flex-1">
+          <table className="min-w-full border-separate border-spacing-0 text-left text-sm text-gray-300">
+            <thead className="sticky top-0 bg-black/90">
+              <tr className="font-mono text-xs text-gray-200">
+                {['Year', 'Project', 'Discipline', 'Summary', 'Link'].map((header) => (
+                  <th
+                    key={header}
+                    className={`border-b border-white/10 bg-white/5 px-4 py-3 font-semibold ${header === 'Discipline' ? 'hidden lg:table-cell' : ''} ${header === 'Summary' ? 'hidden md:table-cell' : ''} ${header === 'Link' ? 'hidden sm:table-cell' : ''} `}
+                  >
+                    {header}
+                  </th>
+                ))}
               </tr>
             </thead>
             <tbody>
-              {projects.map((project) => (
-                <tr key={project.id} className="text-sm transition hover:bg-black/5">
-                  <td className="border-b border-black/15 px-4 py-4 align-top font-mono text-xs uppercase tracking-[0.4em] text-black/60">
-                    {project.id}
-                  </td>
-                  <td className="border-b border-black/15 px-4 py-4 align-top">
-                    <div className="flex flex-col gap-1">
-                      <span className="text-lg font-semibold tracking-tight text-black">{project.title}</span>
-                      <span className="text-xs uppercase tracking-[0.4em] text-red-500">{project.role}</span>
-                    </div>
-                  </td>
-                  <td className="border-b border-black/15 px-4 py-4 align-top text-sm text-black/70">
-                    {project.skills.slice(0, 3).join(' · ')}
-                  </td>
-                  <td className="border-b border-black/15 px-4 py-4 align-top font-mono text-xs uppercase tracking-[0.4em] text-black">
-                    {project.timeline}
-                  </td>
-                  <td className="border-b border-black/15 px-4 py-4 align-top text-sm text-black/70">
-                    {project.descriptionShort}
-                  </td>
-                  <td className="border-b border-black/15 px-4 py-4 align-top">
-                    {project.href ? (
+              {projects
+                .sort((a, b) => a.id.localeCompare(b.id))
+                .sort((a, b) => b.timeline.localeCompare(a.timeline))
+                .sort((a, b) => {
+                  if (a.timeline === 'Present') return -1;
+                  if (b.timeline === 'Present') return 1;
+                  return 0;
+                })
+                .map((project) => (
+                  <tr key={project.id} className="transition hover:bg-white/5">
+                    <td
+                      className={`custom-table-cell align-top font-mono text-xs font-medium uppercase ${
+                        project.timeline === 'Present' ? 'text-blue-200' : 'text-gray-300'
+                      }`}
+                    >
+                      {project.timeline}
+                    </td>
+                    <td className="custom-table-cell align-top">
+                      <h2 className="mb-1 hidden min-w-[10em] text-base leading-tight font-medium text-gray-100 sm:block">
+                        {project.title}
+                      </h2>
                       <a
                         href={project.href}
                         target="_blank"
                         rel="noreferrer noopener"
-                        className="focus-outline inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.3em] text-red-500 transition hover:text-red-600"
+                        className="group -mt-1 -ml-1 flex w-fit items-center gap-1 p-1 text-gray-100 sm:hidden"
                       >
-                        Visit
-                        <ArrowUpRight className="h-3 w-3" />
+                        <h2 className="animated-text block text-base leading-tight font-medium">{project.title}</h2>
+                        <ArrowUpRight className="animated-arrow h-4 w-4 shrink-0 transition-all duration-200" />
                       </a>
-                    ) : (
-                      <span className="text-xs uppercase tracking-[0.3em] text-black/40">—</span>
-                    )}
-                  </td>
-                </tr>
-              ))}
+
+                      <span className="inline-block font-mono text-xs leading-tight text-blue-200/80">
+                        {project.role}
+                      </span>
+                    </td>
+                    <td className="custom-table-cell hidden align-top lg:table-cell">
+                      <div className="flex flex-wrap gap-1 text-xs text-blue-200/90">
+                        {project.skills.map((skill) => (
+                          <span key={skill} className="badge text-xs text-blue-200/90">
+                            {skill}
+                          </span>
+                        ))}
+                      </div>
+                    </td>
+                    <td className="custom-table-cell hidden align-top text-sm text-gray-400 md:table-cell">
+                      {project.description}
+                    </td>
+                    <td className="custom-table-cell hidden align-top sm:table-cell">
+                      {project.href ? (
+                        <a
+                          href={project.href}
+                          target="_blank"
+                          rel="noreferrer noopener"
+                          className="focus-outline group cta flex w-fit items-center gap-2 px-3 py-2 text-xs"
+                        >
+                          {project.tooltip === 'Website' && <Globe className="h-4 w-4 transition-all duration-200" />}
+                          {project.tooltip === 'GitHub' && <Github className="h-4 w-4 transition-all duration-200" />}
+
+                          <span className="relative font-mono">{project.tooltip}</span>
+                          {/* <ArrowUpRight className="h-3 w-3 transition-all duration-200" /> */}
+                        </a>
+                      ) : (
+                        <span className="text-xs text-gray-500 uppercase">—</span>
+                      )}
+                    </td>
+                  </tr>
+                ))}
             </tbody>
           </table>
         </section>
