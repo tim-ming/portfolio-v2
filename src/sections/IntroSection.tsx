@@ -12,7 +12,7 @@ export default function IntroSection() {
     <header className="mb-12">
       <h1 className="text-2xl leading-tight font-medium text-blue-300">
         <a
-          href="https://timming.dev"
+          href="/"
           className="focus-outline inline-flex w-fit rounded-sm hover:text-blue-200 focus-visible:text-blue-200"
         >
           {name}

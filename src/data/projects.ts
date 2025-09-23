@@ -41,7 +41,7 @@ export const projects: Project[] = [
     descriptionShort: 'Accessible React and Tailwind portfolio site with polished motion.',
     skills: ['React', 'TypeScript', 'Tailwind', 'GSAP', 'Three.js'],
     tooltip: 'Website',
-    href: 'https://timming.dev/',
+    href: 'https://v1.timming.dev/',
     image: {
       default: 'pfv1.jpg',
       web: 'pfv1.webp',
