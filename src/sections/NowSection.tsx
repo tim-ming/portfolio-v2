@@ -19,7 +19,7 @@ export default function NowSection() {
     <section id="now" data-section>
       <SectionHeader title="Currently Building" content="A full-fledged launchpad for creative front-end work" />
       <article className="group card relative space-y-3 p-5 text-sm text-gray-300">
-        <header className="flex flex-wrap items-center gap-2 transition-colors duration-200 group-hover:text-blue-400">
+        <header className="flex flex-wrap items-center gap-2">
           <a
             href={currentProject.href}
             target="_blank"
@@ -27,12 +27,9 @@ export default function NowSection() {
             className="focus-outline group flex items-center gap-2 rounded-sm"
             aria-label={`${currentProject.title} (opens in GitHub in a new tab)`}
           >
-            <span className="pointer-events-none absolute inset-0 rounded-sm" aria-hidden="true" />
-            <h3 className="text-xl font-semibold group-focus-visible:text-blue-400">{currentProject.title}</h3>
-            <ArrowUpRight
-              className="h-4 w-4 transition-transform duration-300 ease-out group-hover:translate-x-[2px] group-hover:translate-y-[-2px] group-focus-visible:translate-x-[2px] group-focus-visible:translate-y-[-2px] group-focus-visible:text-blue-400"
-              aria-hidden
-            />
+            <span className="absolute inset-0 rounded-sm" aria-hidden="true" />
+            <h3 className="animated-text text-xl font-semibold">{currentProject.title}</h3>
+            <ArrowUpRight className="animated-arrow h-4 w-4" aria-hidden />
           </a>
           {/* <span className="text-xs tracking-[0.3em] text-gray-500 uppercase">{currentProject.status}</span> */}
         </header>

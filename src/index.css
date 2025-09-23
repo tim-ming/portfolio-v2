@@ -69,10 +69,18 @@
   }
 
   .skip-link {
-    @apply absolute left-1/2 top-4 z-[60] -translate-x-1/2 -translate-y-16 transform rounded-md bg-blue-500/90 px-4 py-2 text-sm font-semibold text-white opacity-0 transition-all duration-200 ease-out;
+    @apply absolute top-4 left-1/2 z-[60] -translate-x-1/2 -translate-y-16 transform rounded-md bg-blue-500/90 px-4 py-2 text-sm font-semibold text-white opacity-0 transition-all duration-200 ease-out;
   }
 
   .skip-link:focus-visible {
     @apply translate-y-0 opacity-100;
+  }
+
+  .animated-arrow {
+    @apply transition-all duration-200 ease-out group-hover:translate-x-[2px] group-hover:translate-y-[-2px] group-hover:text-blue-400 in-focus-visible:translate-x-[2px] in-focus-visible:translate-y-[-2px] in-focus-visible:text-blue-400;
+  }
+
+  .animated-text {
+    @apply transition-all duration-200 ease-out group-hover:text-blue-400 in-focus-visible:text-blue-400;
   }
 }

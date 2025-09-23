@@ -4,7 +4,6 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 import NavBar, { type NavItem } from './NavBar';
 import {
-  AboutSection,
   ConnectSection,
   EducationSection,
   ExperienceSection,

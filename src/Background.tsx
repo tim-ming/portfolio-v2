@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { Canvas, useFrame, useThree, type RootState } from '@react-three/fiber';
+import { Canvas, useFrame, type RootState } from '@react-three/fiber';
 import * as THREE from 'three';
 import { useWindowSize } from 'usehooks-ts';
 function ShaderPlane() {
