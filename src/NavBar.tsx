@@ -5,7 +5,7 @@ export default function NavBar() {
   };
 
   const navItems: NavItem[] = [
-    { label: 'About', href: '#about' },
+    { label: 'Home', href: '#' },
     { label: 'Projects', href: '#projects' },
     { label: 'Education', href: '#education' },
     { label: 'Experience', href: '#experience' },
@@ -13,7 +13,7 @@ export default function NavBar() {
   ];
   return (
     <nav aria-label="Primary" className={`z-50 flex w-full items-center justify-center`}>
-      <ul className="flex flex-1 flex-col font-mono text-sm sm:flex-row">
+      <ul className="flex flex-1 flex-col font-mono text-sm">
         {navItems.map((item) => (
           <li className="flex" key={item.href}>
             <a
