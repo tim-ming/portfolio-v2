@@ -8,12 +8,12 @@ const experience = [
     role: 'Software Engineer Intern',
     period: 'Nov 2023 — Feb 2024',
     location: 'Kuala Lumpur, MY',
-    stack: ['MERN', 'Next.js', 'TypeScript', 'SCSS', 'Zustand', 'GraphQL', 'Apollo Client', 'Ant Design', 'Figma'],
+    stack: ['MERN', 'Next.js', 'TypeScript', 'Zustand', 'GraphQL', 'Apollo Client', 'Ant Design', 'Figma'],
     bullets: [
-      'Built features for a learning management system with MERN stack, collaborating closely with design and backend team members based on stakeholder requirements.',
-      'Delivered Figma screens and components as responsive, production-ready web UI with WCAG-compliant, customized AntD components.',
-      'Led the migration of state management from Context API to Zustand, reducing unnecessary re-renders and improving load times.',
-      'Integrated type-safe GraphQL APIs with Apollo Client to support queries, mutations, and reliable UI updates with proper error and loading states.',
+      'Led integration of design and backend deliverables as the frontend engineer on a production-grade learning management system, using Next.js, TypeScript, Apollo GraphQL, and MongoDB',
+      'Developed 20+ accessible, responsive web pages from Figma designs, aligning with brand standards and design systems using customized Ant Design components',
+      'Spearheaded migration of state management from Context API to Zustand, improving performance and user experience by eliminating unnecessary re-renders',
+      'Designed a maintainable frontend structure with reusable React components and CSS modules, reducing code duplication and streamlining development for team handoff',
     ],
   },
   {
@@ -24,8 +24,8 @@ const experience = [
     location: 'Subang Jaya, MY',
     stack: ['TypeScript', 'Haskell', 'Functional Programming'],
     bullets: [
-      'Served as dedicated teaching assistant for FIT2102 Programming Paradigms course, mentoring 150+ undergraduate CS students on functional programming paradigms in TypeScript and Haskell.',
-      "Delivered 9 contact hours per week, leading workshops and consultations to clarify advanced concepts and support students' learning on challenging course material.",
+      'Mentored 150+ undergraduate computer science students on functional programming paradigms in TypeScript and Haskell alongside the course lecturer',
+      'Delivered 9 contact hours per week, leading workshops and consultations to clarify advanced concepts and support student learning of challenging material',
     ],
   },
 ];
