@@ -3,16 +3,16 @@ import SectionHeader from '../components/SectionHeader';
 import { ArrowUpRight } from 'lucide-react';
 
 const currentProject = {
-  title: 'create-react-creative',
-  timeline: 'Sep 2025 — Present',
+  title: 'Monologue',
+  timeline: 'Dec 2025 — Present',
   status: 'In Progress',
   description:
-    'Open-source scaffolder CLI for React creative projects. Shipping type-safe templates, zero-config tooling and modern technologies.',
+    'An immersive emotional storytelling platform built on Cloudflare workers with Hono and Drizzle in a monorepo architecture.',
   focuses: [
-    "Templated React + Vite starters with the community's best creative tools by choice",
-    '(Dev) Automated CI/CD testing and semantic-release pipeline via GitHub Actions',
+    'Edge-first architecture with Cloudflare Workers, D1 (SQLite), and Hono for global low-latency',
+    'Monorepo with shared TypeScript types and Drizzle ORM across web client and admin dashboard',
   ],
-  href: 'https://github.com/tim-ming/create-react-creative',
+  href: 'https://github.com/tim-ming/monologue',
 };
 
 export default function NowSection() {

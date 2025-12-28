@@ -16,8 +16,8 @@ export default function ProjectsSection() {
             key={project.id}
             className={`${isSmUp ? 'group card' : ''} relative flex flex-col gap-2 text-sm text-gray-300 sm:p-4`}
           >
-            {project.image && (project.image.default || project.image.web) && (
-              <div className="relative aspect-video h-32 overflow-hidden sm:h-auto">
+            <div className="relative aspect-video h-32 overflow-hidden sm:h-auto">
+              {project.image && (project.image.default || project.image.web) ? (
                 <picture>
                   {project.image.web && <source srcSet={`/projects/${project.image.web}`} type="image/webp" />}
                   <img
@@ -33,8 +33,12 @@ export default function ProjectsSection() {
                     className="h-full rounded-md border border-white/10 bg-black/20 object-cover sm:h-auto sm:border-white/5"
                   />
                 </picture>
-              </div>
-            )}
+              ) : (
+                <div className="flex h-full w-full items-center justify-center rounded-md border border-white/10 bg-black/20 sm:border-white/5">
+                  <span className="flex items-center gap-2 text-gray-500">No Image</span>
+                </div>
+              )}
+            </div>
             <div className="mt-2 flex flex-wrap items-center justify-between gap-1 text-xs text-gray-500">
               <a
                 href={project.href}

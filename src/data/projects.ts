@@ -17,6 +17,18 @@ export type Project = {
 export const projects: Project[] = [
   {
     id: '01',
+    role: 'Full Stack Development',
+    timeline: 'Current',
+    title: 'Monologue',
+    description:
+      '(WIP) An immersive emotional storytelling platform built on Cloudflare workers with Hono and Drizzle in a monorepo architecture.',
+    descriptionShort: 'Edge-first storytelling app with Cloudflare Workers, Hono, and SQLite.',
+    skills: ['React', 'Hono', 'Cloudflare Workers', 'SQLite', 'Drizzle ORM', 'TanStack Query'],
+    tooltip: 'GitHub',
+    href: 'https://github.com/tim-ming/monologue',
+  },
+  {
+    id: '02',
     role: 'Open-Source CLI Development',
     timeline: '2025',
     title: 'create-react-creative',
@@ -32,7 +44,7 @@ export const projects: Project[] = [
     },
   },
   {
-    id: '02',
+    id: '03',
     role: 'Frontend Development',
     timeline: '2025',
     title: 'Portfolio Website v1',
@@ -48,7 +60,7 @@ export const projects: Project[] = [
     },
   },
   {
-    id: '03',
+    id: '04',
     role: 'Android Development',
     timeline: '2025',
     title: 'NutriTrack',
@@ -64,7 +76,7 @@ export const projects: Project[] = [
     },
   },
   {
-    id: '04',
+    id: '05',
     role: 'Mobile Development & Design',
     timeline: '2024',
     title: 'Final Year Project',
@@ -80,7 +92,7 @@ export const projects: Project[] = [
     },
   },
   {
-    id: '05',
+    id: '06',
     role: 'Software Development',
     timeline: '2023',
     title: 'Tetris',
@@ -96,7 +108,7 @@ export const projects: Project[] = [
     },
   },
   {
-    id: '06',
+    id: '07',
     role: 'Frontend Development',
     timeline: '2023',
     title: 'Mock Forum',
@@ -112,7 +124,7 @@ export const projects: Project[] = [
     },
   },
   {
-    id: '07',
+    id: '08',
     role: 'Frontend Development',
     timeline: '2024',
     title: 'Meaningless',
@@ -128,7 +140,7 @@ export const projects: Project[] = [
     },
   },
   {
-    id: '08',
+    id: '09',
     role: 'Frontend Development',
     timeline: '2023',
     title: 'Kuroneko',
@@ -144,7 +156,7 @@ export const projects: Project[] = [
     },
   },
   {
-    id: '09',
+    id: '10',
     role: 'Frontend Development',
     timeline: '2022',
     title: 'totally-twitter',
