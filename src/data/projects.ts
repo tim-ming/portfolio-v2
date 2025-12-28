@@ -18,7 +18,7 @@ export const projects: Project[] = [
   {
     id: '01',
     role: 'Open-Source CLI Development',
-    timeline: 'Present',
+    timeline: '2025',
     title: 'create-react-creative',
     description:
       'Open-source scaffolder CLI for React creative projects. Shipping type-safe templates, zero-config tooling and modern technologies.',

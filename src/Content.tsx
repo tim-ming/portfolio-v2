@@ -16,11 +16,11 @@ export default function Content() {
         <IntroSection />
         <NowSection />
         <SectionSeparator />
+        <ExperienceSection />
+        <SectionSeparator />
         <ProjectsSection />
         <SectionSeparator />
         <EducationSection />
-        <SectionSeparator />
-        <ExperienceSection />
         <SectionSeparator />
         <ConnectSection />
         <SectionSeparator />

@@ -1,34 +1,6 @@
 import { ArrowRight, ArrowUpRight } from 'lucide-react';
 import SectionHeader from '../components/SectionHeader';
-
-const experience = [
-  {
-    company: 'Lizard Global',
-    link: 'https://lizard.global',
-    role: 'Software Engineer Intern',
-    period: 'Nov 2023 — Feb 2024',
-    location: 'Kuala Lumpur, MY',
-    stack: ['MERN', 'Next.js', 'TypeScript', 'Zustand', 'GraphQL', 'Apollo Client', 'Ant Design', 'Figma'],
-    bullets: [
-      'Led integration of design and backend deliverables as the frontend engineer on a production-grade learning management system, using Next.js, TypeScript, Apollo GraphQL, and MongoDB',
-      'Developed 20+ accessible, responsive web pages from Figma designs, aligning with brand standards and design systems using customized Ant Design components',
-      'Spearheaded migration of state management from Context API to Zustand, improving performance and user experience by eliminating unnecessary re-renders',
-      'Designed a maintainable frontend structure with reusable React components and CSS modules, reducing code duplication and streamlining development for team handoff',
-    ],
-  },
-  {
-    company: 'Monash University',
-    link: 'https://monash.edu.my',
-    role: 'Class Mentor',
-    period: 'Jul 2024 — Nov 2024',
-    location: 'Subang Jaya, MY',
-    stack: ['TypeScript', 'Haskell', 'Functional Programming'],
-    bullets: [
-      'Mentored 150+ undergraduate computer science students on functional programming paradigms in TypeScript and Haskell alongside the course lecturer',
-      'Delivered 9 contact hours per week, leading workshops and consultations to clarify advanced concepts and support student learning of challenging material',
-    ],
-  },
-];
+import { experience } from '../data/experience';
 
 export default function ExperienceSection() {
   return (
