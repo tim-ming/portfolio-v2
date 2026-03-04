@@ -19,7 +19,7 @@ export default function NowSection() {
   const isSmUp = useScreenLargerThan('sm');
   return (
     <section id="now">
-      <SectionHeader title="Currently Building" content="A launchpad for creative front-end work" />
+      <SectionHeader title="Currently Building" content="An emotional storytelling website (WIP)" />
       <article
         className={`${isSmUp ? 'group card' : 'rounded-md border border-white/10 bg-black/50'} relative space-y-3 p-5 text-sm text-gray-300`}
       >
