@@ -17,12 +17,12 @@ export const experience: Experience[] = [
     location: 'Remote',
     stack: ['React', 'TypeScript', 'Tailwind CSS', 'Redux Toolkit', 'Zustand', 'AWS', 'DynamoDB', 'Lambda'],
     bullets: [
-      'Built a crucial lead generation engine for the business by developing an end-to-end network diagnostic tool for potential clients using AWS Cognito, Lambda, and DynamoDB',
-      "Redesigned the internal management platform's UI/UX to eliminate legacy friction points, improving day-to-day usability and reducing operational overhead for internal teams",
-      'Migrated legacy codebase to modern solutions (Vite), achieving a 80% reduction in build times and instant development server startup, accelerating future development processes',
-      'Led a self-initiated data layer redesign with RTK Query, cutting duplicate API response times from ~2s to instant through client-side caching, delivering a noticeably smoother user experience',
-      'Architected an internal audit logging system using AWS Lambda and DynamoDB, providing the business with full historical transparency on management events and data export capabilities',
-      'Engineered a shared monorepo infrastructure with centralized UI library and shared TypeScript package, reducing duplicated code and preventing integration bugs across Admin, Client and Backend services',
+      'Built a lead generation engine for the business by developing an end-to-end network diagnostic tool for potential clients using AWS Lambda and DynamoDB',
+      "Developed and maintained core modules within the business's internal automation platform, saving internal teams up to 10 hours of manual work per week",
+      'Built a before/after performance monitoring tool for client network upgrades, allowing teams to visualize improvements and validate deployment ROI with automated reporting for client presentations',
+      'Redesigned data layer with RTK Query and client-side caching, cutting redundant API response times from ~2s to instant',
+      'Architected an internal audit logging system using AWS Lambda and DynamoDB, providing the business with enabling full audit trails across management operations',
+      'Migrated legacy codebase from deprecated tooling to Vite, reducing build times by 400%, eliminating dev server startup delays, and resolving unpatched dependency vulnerabilities',
     ],
   },
   {
